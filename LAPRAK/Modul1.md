@@ -50,7 +50,7 @@ int main(){
 ```
 
 > Output
-> ![Screenshot bagian x](Output/no1.jpg)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/LAPRAK/jawaban%201.png)
 > %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
 Penjelasan ttg kode kalian disini
