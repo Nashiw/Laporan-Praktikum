@@ -147,11 +147,40 @@ Kalau adalanjutan di lanjut disini aja
 soal nomor 2B
 
 ```go
-package main
+#include <iostream>
+using namespace std;
 
-func main() {
-	fmt.Println("kode untuk soal nomor 2B")
+int main() {
+    int n;
+    cout << "Masukkan angka: ";
+    cin >> n;
+
+    for (int i = n; i >= 1; i--) {
+        for (int spasi = 0; spasi < n - i; spasi++) {
+            cout << "  ";
+        }
+
+        for (int j = i; j >= 1; j--) {
+            cout << j << " ";
+        }
+
+        cout << "* ";
+
+        for (int k = 1; k <= i; k++) {
+            cout << k << " ";
+        }
+
+        cout << endl;
+    }
+
+    for (int spasi = 0; spasi < n; spasi++) {
+        cout << "  ";
+    }
+    cout << "*" << endl;
+
+    return 0;
 }
+
 ```
 
 > Output
