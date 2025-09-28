@@ -1,5 +1,5 @@
-# <h1 align="center">Laporan Praktikum Modul X <br> Nama Modul</h1>
-<p align="center">NAMA - NIM</p>
+# <h1 align="center">Laporan Praktikum Modul 01 <br>  Pengenalan C++</h1>
+<p align="center">NASHIR KHOIRUL HUDA - 103112400168</p>
 
 ## Dasar Teori
 
@@ -15,15 +15,37 @@ aku mengerjakan perulangan
 
 ### Soal 1
 
-copy paste soal nomor 1 disini
+Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
 
 ```go
-package main
+#include <iostream>
+using namespace std;
 
-func main() {
-	fmt.Println("Kode kalian disini")
-	fmt.Println("JANGAN MASUKIN >>SCREENSHOT<< KODE KALIAN DISINI")
-	fmt.Println("KALAU ADA -20 POIN LAPRAK")
+int main(){
+    float x, y;
+
+    cout << "Masukkan bilangan pertama: ";
+    cin >> x;
+    cout << "Masukkan bilangan kedua: ";
+    cin >> y;
+
+    float tambah = x + y;
+    cout << "Hasil penjumlahan: " << x << " + " << y << " = " << tambah << endl;
+
+    float pengurangan = x - y;
+    cout << "Hasil pengekuraangan: " << x << " - " << y << " = " << pengurangan << endl;
+
+    float perkalian = x * y;
+    cout << "Hasil perkalian: " << x << " * " << y << " = " << perkalian << endl;
+
+    if (y != 0){
+        float pembagian = x / y;
+        cout << "Hasil pembagian: " << x << " / " << y << " = " << pembagian << endl;
+    } else {
+        cout << "Pembagian dengan nol tidak dapat dilakukan." << endl;
+    }
+
+    return 0;
 }
 ```
 
