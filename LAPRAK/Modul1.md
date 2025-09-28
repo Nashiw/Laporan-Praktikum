@@ -57,7 +57,7 @@ Penjelasan ttg kode kalian disini
 
 ### Soal 2
 
-soal nomor 2A
+Buatlah sebuah program yang menerima masukan angka dan mengeluarkan output nilai angka tersebut dalam bentuk tulisan. Angka yang akan di-input-kan user adalah bilangan bulat positif mulai dari 0 s.d 100.
 
 ```go
 #include <iostream>
@@ -144,7 +144,7 @@ penjelasan kode
 
 Kalau adalanjutan di lanjut disini aja
 
-soal nomor 2B
+Buatlah program yang dapat memberikan input dan output sbb.
 
 ```go
 #include <iostream>
