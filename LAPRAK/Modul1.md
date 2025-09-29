@@ -3,7 +3,7 @@
 
 ## Dasar Teori
 
-yang panjang dikit
+Dalam C++ ada beberapa dasar penting yang biasa dipelajari, yaitu struct, aritmatika, kondisi, perulangan, dan fungsi. Struct dipakai buat ngumpulin beberapa variabel dengan tipe berbeda dalam satu wadah supaya data lebih gampang diatur. Aritmatika berhubungan sama operator kayak +, -, *, /, dan % buat ngelakuin hitungan matematis. Kondisi atau percabangan (if, else if, else, switch) dipakai biar program bisa milih jalannya sesuai syarat yang ada. Perulangan (for, while, do while) berguna buat ngejalanin kode berulang-ulang tanpa harus nulis perintah banyak kali. Sementara itu, fungsi adalah blok kode yang bisa dipanggil kapan aja buat tugas tertentu, jadi program lebih rapi, gampang dibaca, dan bisa dipakai lagi.
 
 ## Unguided
 
@@ -134,9 +134,10 @@ int main() {
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/LAPRAK/jawaban%202.png)
 
-penjelasan kode
+Program C++ tersebut dibuat untuk mengonversi angka antara 0 hingga 100 menjadi tulisan dalam bahasa Indonesia. Ketika pengguna memasukkan angka, program lebih dulu memeriksa apakah angkanya valid; jika tidak, akan muncul pesan bahwa input berada di luar jangkauan. Angka 0 ditampilkan sebagai “nol” dan angka 100 sebagai “seratus”. Untuk bilangan di bawah 12, program langsung menuliskan sesuai sebutan dasarnya, sedangkan bilangan 12 sampai 19 ditampilkan dengan format “... belas”. Sementara itu, angka 20 sampai 99 dipecah menjadi puluhan dan satuan, lalu digabungkan sehingga membentuk tulisan yang sesuai, contohnya angka 42 menjadi “empat puluh dua”. Dengan cara ini, program dapat menampilkan angka dalam bentuk kata yang lebih jelas dan mudah dipahami.
 
-Kalau adalanjutan di lanjut disini aja
+
+### Soal 3
 
 Buatlah program yang dapat memberikan input dan output sbb.
 
@@ -180,7 +181,8 @@ int main() {
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/LAPRAK/jawaban%203.png)
 
-penjelasan bedanya sesuai soal
+Program C++ ini berfungsi untuk mencetak pola angka berbentuk segitiga yang simetris dengan tanda bintang (*) sebagai pemisah di bagian tengah. Setelah pengguna memasukkan angka `n`, program akan menampilkan barisan angka menurun dari `i` sampai 1 di sisi kiri, kemudian mencetak bintang, dan dilanjutkan dengan angka menaik dari 1 hingga `i` di sisi kanan. Setiap baris diawali spasi agar hasilnya rata dan rapi, lalu diakhiri dengan sebuah baris tambahan yang hanya menampilkan spasi sebanyak `n` dan sebuah bintang. Singkatnya, program ini menghasilkan pola angka yang seimbang di kiri dan kanan dengan simbol bintang di tengah sehingga membentuk tampilan yang teratur.
+
 
 ## Referensi
 
