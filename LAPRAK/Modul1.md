@@ -45,9 +45,9 @@ int main(){
 
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/LAPRAK/jawaban%201.png)
-> %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
-Penjelasan ttg kode kalian disini
+Program di atas merupakan kalkulator sederhana yang dibuat dengan C++. Cara kerjanya, pengguna diminta memasukkan dua bilangan, lalu program otomatis menampilkan hasil penjumlahan, pengurangan, perkalian, dan pembagian dari kedua bilangan tersebut. Untuk operasi bagi, program juga sudah diberi pengaman: kalau bilangan kedua yang dimasukkan adalah nol, program akan memberi tahu bahwa pembagian tidak bisa dilakukan. Jadi, program ini bisa membantu menghitung operasi dasar secara cepat dan aman langsung lewat terminal.
+
 
 ### Soal 2
 
