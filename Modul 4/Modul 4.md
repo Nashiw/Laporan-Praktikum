@@ -394,7 +394,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](output/modul4no2.jpg)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%204/jawaban%202.png)
 
 Program ini menggunakan singly linked list dengan pointer head sebagai penanda node pertama. Fungsi tambahNode() digunakan untuk menambahkan data di akhir list, sedangkan tampilList() menampilkan seluruh isi list. Proses pembalikan dilakukan dalam fungsi reverseList(), di mana setiap node dibalik arah penunjuknya dengan menggunakan tiga pointer bantu (prev, current, dan next). Setelah seluruh pointer dibalik, head diperbarui ke node terakhir, sehingga urutan list menjadi terbalik.
 
