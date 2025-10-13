@@ -7,9 +7,9 @@ Dasar teori dari program di atas berkaitan dengan Abstract Data Type (ADT) merup
 
 ## Guided
 
-## Menghitung Rata Rata
+### Menghitung Rata Rata
 
-## mahasiswa.h
+### mahasiswa.h
 ```go
 #ifndef MAHASISWA_H_INCLUDED
 #define MAHASISWA_H_INCLUDED
@@ -26,7 +26,7 @@ float rata2(mahasiswa m);
 #endif
 ```
 
-## Mahasiswa.cpp
+### Mahasiswa.cpp
 ```go
 #include "mahasiswa.h"
 #include <iostream>
@@ -48,7 +48,7 @@ float rata2(mahasiswa m)
 }
 ```
 
-## main.cpp
+### main.cpp
 ```go
 #include <iostream>
 #include "mahasiswa.h"
@@ -152,7 +152,7 @@ Program di atas merupakan program C++ untuk menyimpan dan menampilkan data **mah
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/Screenshot%202025-10-13%20181006.png)
 
 
-# pelajaran.h
+### pelajaran.h
 ```go
 #ifndef PELAJARAN_H_INCLUDED
 #define PELAJARAN_H_INCLUDED
@@ -171,7 +171,7 @@ void tampil_pelajaran(pelajaran pel);
 
 #endif
 ```
-# pelajaran.cpp
+### pelajaran.cpp
 ```go
 #include <iostream>
 #include "pelajaran.h"
@@ -189,7 +189,7 @@ void tampil_pelajaran(pelajaran pel) {
     cout << "nilai : " << pel.kodeMapel << endl;
 }
 ```
-# main.cpp
+### main.cpp
 ```go
 #include <iostream>
 #include "pelajaran.h"
