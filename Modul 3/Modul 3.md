@@ -144,7 +144,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/modul%202/jawaban%20no%201.png)
+> ![Screenshot bagian x]()
 
 Program di atas berfungsi untuk melakukan transpose pada sebuah matriks berukuran 3x3 menggunakan bahasa C++. Pertama, matriks awal diinisialisasi dengan elemen bernilai 1 hingga 9. Kemudian, dibuat matriks baru bernama `transpose` untuk menyimpan hasil penukaran baris dan kolom. Proses transpose dilakukan dengan menggunakan dua perulangan bersarang, di mana setiap elemen `matriks[i][j]` ditukar posisinya menjadi `transpose[j][i]`, sehingga baris menjadi kolom dan sebaliknya. Setelah proses selesai, program menampilkan matriks awal dan matriks hasil transpose ke layar, sehingga pengguna dapat melihat perbedaan antara keduanya.
 
