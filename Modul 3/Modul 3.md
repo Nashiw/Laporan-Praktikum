@@ -296,12 +296,15 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%202.png)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%203.png))
 
-Program di atas merupakan penerapan konsep Abstract Data Type (ADT) dalam bahasa C++. ADT yang dibuat bernama pelajaran, dengan dua atribut yaitu namaMapel (nama mata pelajaran) dan kodeMapel (kode mata pelajaran). File pelajaran.h berisi definisi tipe data dan deklarasi fungsi, file pelajaran.cpp berisi implementasi fungsi untuk membuat objek pelajaran (create_pelajaran) serta menampilkannya (tampil_pelajaran), sedangkan file main.cpp berfungsi sebagai program utama yang membuat objek pelajaran dengan nama “Struktur Data” dan kode “STD”, lalu menampilkannya ke layar.
+Program di atas berfungsi untuk **menampilkan dan menukar nilai** dalam array 2 dimensi serta **menukar nilai variabel melalui pointer**. Terdapat dua array 3x3 bernama `A` dan `B`. Fungsi `tampilArray()` digunakan untuk menampilkan isi array, `tukarPosisi()` untuk menukar elemen antara dua array pada posisi tertentu, dan `tukarPointer()` untuk menukar nilai dari dua variabel yang ditunjuk oleh pointer. Di dalam fungsi `main()`, program menampilkan isi awal kedua array, kemudian menukar elemen pada posisi `[1][1]`, serta menampilkan hasil setelah pertukaran. Selain itu, dua variabel `x` dan `y` juga ditukar nilainya menggunakan pointer. Program ini menunjukkan konsep **fungsi, array 2D, reference, dan pointer** dalam C++.
 
 ## Referensi
 
-1. https://www.w3schools.com/cpp/cpp_arrays.asp
-2. https://www.w3schools.com/cpp/cpp_references.asp
-3. https://www.w3schools.com/cpp/cpp_pointers.asp
+1. [https://www.w3schools.com/dsa/dsa_intro.php]
+2. [https://www.w3schools.com/cpp/cpp_data_structures.asp]
+3. [https://www.w3schools.com/cpp/cpp_structs.asp]
+4. [https://www.w3schools.com/cpp/cpp_data_types.asp]
+5. [https://www.w3schools.in/cplusplus/data-abstraction]
+
