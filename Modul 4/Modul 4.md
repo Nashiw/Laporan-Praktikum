@@ -8,7 +8,7 @@ Singly Linked List adalah struktur data dinamis yang terdiri dari node-node yang
 ## Guided
 
 ### linklist
-go
+```go
 #include <iostream>
 using namespace std;
 
@@ -185,8 +185,7 @@ int main() {
 
     return 0;
 }
-
-
+```
 
 ## Unguided
 
