@@ -207,11 +207,99 @@ int main() {
 }
 ```
 
+> Output
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%202.png)
+
+Program di atas merupakan penerapan konsep Abstract Data Type (ADT) dalam bahasa C++. ADT yang dibuat bernama pelajaran, dengan dua atribut yaitu namaMapel (nama mata pelajaran) dan kodeMapel (kode mata pelajaran). File pelajaran.h berisi definisi tipe data dan deklarasi fungsi, file pelajaran.cpp berisi implementasi fungsi untuk membuat objek pelajaran (create_pelajaran) serta menampilkannya (tampil_pelajaran), sedangkan file main.cpp berfungsi sebagai program utama yang membuat objek pelajaran dengan nama “Struktur Data” dan kode “STD”, lalu menampilkannya ke layar.
+
+### Soal 3
+
+Buatlah program dengan ketentuan :
+- 2 buah array 2D integer berukuran 3x3 dan 2 buah pointer integer
+- fungsi/prosedur yang menampilkan isi sebuah array integer 2D
+- fungsi/prosedur yang akan menukarkan isi dari 2 array integer 2D pada posisi tertentu
+- fungsi/prosedur yang akan menukarkan isi dari variabel yang ditunjuk oleh 2 buah
+pointer
+
+```go
+  #include <iostream>
+using namespace std;
+
+void tampilArray(int arr[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}
+
+void tukarNilai(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void tukarPosisi(int arr1[3][3], int arr2[3][3], int baris, int kolom) {
+    int temp = arr1[baris][kolom];
+    arr1[baris][kolom] = arr2[baris][kolom];
+    arr2[baris][kolom] = temp;
+}
+
+void tukarPointer(int *p1, int *p2) {
+    int temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+}
+
+int main() {
+    int A[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    int B[3][3] = {
+        {10, 11, 12},
+        {13, 14, 15},
+        {16, 17, 18}
+    };
+
+    cout << "Array A sebelum ditukar:\n";
+    tampilArray(A);
+    cout << "\nArray B sebelum ditukar:\n";
+    tampilArray(B);
+
+    tukarPosisi(A, B, 1, 1);
+
+    cout << "\nSetelah menukar elemen pada posisi [1][1]:\n";
+    cout << "Array A:\n";
+    tampilArray(A);
+    cout << "\nArray B:\n";
+    tampilArray(B);
+
+    int x = 50, y = 100;
+    int *ptr1 = &x;
+    int *ptr2 = &y;
+
+    cout << "\nNilai sebelum ditukar melalui pointer:\n";
+    cout << "x = " << x << ", y = " << y << endl;
+
+    tukarPointer(ptr1, ptr2);
+
+    cout << "Nilai setelah ditukar melalui pointer:\n";
+    cout << "x = " << x << ", y = " << y << endl;
+
+    return 0;
+}
+
+```
 
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%202.png)
 
 Program di atas merupakan penerapan konsep Abstract Data Type (ADT) dalam bahasa C++. ADT yang dibuat bernama pelajaran, dengan dua atribut yaitu namaMapel (nama mata pelajaran) dan kodeMapel (kode mata pelajaran). File pelajaran.h berisi definisi tipe data dan deklarasi fungsi, file pelajaran.cpp berisi implementasi fungsi untuk membuat objek pelajaran (create_pelajaran) serta menampilkannya (tampil_pelajaran), sedangkan file main.cpp berfungsi sebagai program utama yang membuat objek pelajaran dengan nama “Struktur Data” dan kode “STD”, lalu menampilkannya ke layar.
+
 ## Referensi
 
 1. https://www.w3schools.com/cpp/cpp_arrays.asp
