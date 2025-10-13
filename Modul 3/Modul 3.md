@@ -209,9 +209,9 @@ int main() {
 
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%202.png)
 
-Program di atas digunakan untuk **mengkuadratkan sebuah bilangan menggunakan konsep *call by reference*** dalam bahasa C++. Variabel `nilai` diinisialisasi dengan angka 5, lalu ditampilkan sebagai nilai awal. Fungsi `kuadratkan(int &x)` menerima parameter berupa *reference* (`&`), sehingga setiap perubahan pada variabel `x` di dalam fungsi akan langsung mengubah nilai asli di luar fungsi. Di dalam fungsi, nilai `x` dikalikan dengan dirinya sendiri (`x = x * x`), sehingga hasilnya adalah kuadrat dari nilai awal. Setelah fungsi dipanggil, program menampilkan nilai yang sudah dikuadratkan, yaitu 25.
+Program di atas merupakan penerapan konsep Abstract Data Type (ADT) dalam bahasa C++. ADT yang dibuat bernama pelajaran, dengan dua atribut yaitu namaMapel (nama mata pelajaran) dan kodeMapel (kode mata pelajaran). File pelajaran.h berisi definisi tipe data dan deklarasi fungsi, file pelajaran.cpp berisi implementasi fungsi untuk membuat objek pelajaran (create_pelajaran) serta menampilkannya (tampil_pelajaran), sedangkan file main.cpp berfungsi sebagai program utama yang membuat objek pelajaran dengan nama “Struktur Data” dan kode “STD”, lalu menampilkannya ke layar.
 ## Referensi
 
 1. https://www.w3schools.com/cpp/cpp_arrays.asp
