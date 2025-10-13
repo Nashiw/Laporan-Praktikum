@@ -149,7 +149,7 @@ int main() {
 Program di atas merupakan program C++ untuk menyimpan dan menampilkan data **mahasiswa (maksimal 10 orang)** menggunakan **struktur data (struct)**. Struct `Mahasiswa` berisi beberapa field, yaitu `nama`, `nim`, `uts`, `uas`, `tugas`, dan `nilaiAkhir`. Fungsi `hitungNilaiAkhir()` digunakan untuk menghitung nilai akhir mahasiswa dengan rumus `0.3*UTS + 0.4*UAS + 0.3*Tugas`. Prosedur `inputMahasiswa()` berfungsi untuk meminta input data dari pengguna dan sekaligus menghitung nilai akhirnya, sedangkan `tampilMahasiswa()` digunakan untuk menampilkan semua data mahasiswa yang telah diinput. Di dalam fungsi `main()`, pengguna diminta memasukkan jumlah mahasiswa, kemudian data tiap mahasiswa diinput satu per satu dan hasilnya ditampilkan dalam bentuk daftar lengkap di akhir program.
 
 ### Soal 2
-
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%201.png)
 
 
 
