@@ -307,25 +307,96 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](output/modul4no1.jpg)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%204/jawaban%201.png)
  
-Penjelasan Kode:
-
+Program ini menggunakan **Single Linked List** untuk mengelola antrian pembeli, di mana setiap data disimpan dalam struktur `Node` yang berisi nama, pesanan, dan pointer `next` ke data berikutnya. Pointer `front` menunjuk ke antrian pertama yang akan dilayani terlebih dahulu, sedangkan `rear` menunjuk ke antrian terakhir. Fungsi `tambahAntrian()` digunakan untuk menambah pembeli di bagian belakang antrian, `layaniAntrian()` berfungsi menghapus pembeli paling depan dari antrian sesuai konsep **FIFO (First In, First Out)**, dan `tampilkanAntrian()` menampilkan seluruh data pembeli yang sedang menunggu giliran. Program ini berjalan secara interaktif melalui menu agar pengguna dapat menambah, melayani, dan melihat daftar antrian dengan mudah.
 
 ### Soal 2
 
 buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1) 
 
 ```go
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* head = nullptr;
+
+
+void tambahNode(int nilai) {
+    Node* baru = new Node;
+    baru->data = nilai;
+    baru->next = nullptr;
+
+    if (head == nullptr) {
+        head = baru;
+    } else {
+        Node* temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;
+        }
+        temp->next = baru;
+    }
+}
+
+
+void tampilList() {
+    if (head == nullptr) {
+        cout << "Linked List kosong." << endl;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data;
+        if (temp->next != nullptr) cout << " -> ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+
+void reverseList() {
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        next = current->next;   
+        current->next = prev;   
+        prev = current;         
+        current = next;         
+    }
+    head = prev; 
+}
+
+int main() {
+
+    tambahNode(1);
+    tambahNode(2);
+    tambahNode(3);
+
+    cout << "Linked List sebelum dibalik:\n";
+    tampilList();
+
+    reverseList();
+
+    cout << "\nLinked List setelah dibalik:\n";
+    tampilList();
+
+    return 0;
+}
 
 ```
 
 > Output
 > ![Screenshot bagian x](output/modul4no2.jpg)
 
-Penjelasan Kode:
-
-
+Program ini menggunakan singly linked list dengan pointer head sebagai penanda node pertama. Fungsi tambahNode() digunakan untuk menambahkan data di akhir list, sedangkan tampilList() menampilkan seluruh isi list. Proses pembalikan dilakukan dalam fungsi reverseList(), di mana setiap node dibalik arah penunjuknya dengan menggunakan tiga pointer bantu (prev, current, dan next). Setelah seluruh pointer dibalik, head diperbarui ke node terakhir, sehingga urutan list menjadi terbalik.
 
 ## Referensi
 
