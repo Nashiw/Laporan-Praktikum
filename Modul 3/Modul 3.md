@@ -149,34 +149,67 @@ int main() {
 Program di atas merupakan program C++ untuk menyimpan dan menampilkan data **mahasiswa (maksimal 10 orang)** menggunakan **struktur data (struct)**. Struct `Mahasiswa` berisi beberapa field, yaitu `nama`, `nim`, `uts`, `uas`, `tugas`, dan `nilaiAkhir`. Fungsi `hitungNilaiAkhir()` digunakan untuk menghitung nilai akhir mahasiswa dengan rumus `0.3*UTS + 0.4*UAS + 0.3*Tugas`. Prosedur `inputMahasiswa()` berfungsi untuk meminta input data dari pengguna dan sekaligus menghitung nilai akhirnya, sedangkan `tampilMahasiswa()` digunakan untuk menampilkan semua data mahasiswa yang telah diinput. Di dalam fungsi `main()`, pengguna diminta memasukkan jumlah mahasiswa, kemudian data tiap mahasiswa diinput satu per satu dan hasilnya ditampilkan dalam bentuk daftar lengkap di akhir program.
 
 ### Soal 2
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/jawaban%201.png)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%203/Screenshot%202025-10-13%20181006.png)
 
 
-
+# pelajaran.h
 ```go
-#include <iostream>
+#ifndef PELAJARAN_H_INCLUDED
+#define PELAJARAN_H_INCLUDED
+
+#include <string>
 using namespace std;
 
-void kuadratkan(int &x) {
-    x = x * x;
+struct pelajaran {
+    string namaMapel;
+    string kodeMapel;
+};
+
+pelajaran create_pelajaran(string namapel, string kodepel);
+
+void tampil_pelajaran(pelajaran pel);
+
+#endif
+```
+# pelajaran.cpp
+```go
+#include <iostream>
+#include "pelajaran.h"
+using namespace std;
+
+pelajaran create_pelajaran(string namapel, string kodepel) {
+    pelajaran p;
+    p.namaMapel = namapel;
+    p.kodeMapel = kodepel;
+    return p;
 }
 
+void tampil_pelajaran(pelajaran pel) {
+    cout << "nama pelajaran : " << pel.namaMapel << endl;
+    cout << "nilai : " << pel.kodeMapel << endl;
+}
+```
+# main.cpp
+```go
+#include <iostream>
+#include "pelajaran.h"
+using namespace std;
+
 int main() {
-    int nilai = 5;
+    string namapel = "Struktur Data";
+    string kodepel = "STD";
 
-    cout << "Nilai awal: " << nilai << endl;
+    pelajaran pel = create_pelajaran(namapel, kodepel);
 
-    kuadratkan(nilai);
-
-    cout << "Nilai setelah dikuadratkan: " << nilai << endl;
+    tampil_pelajaran(pel);
 
     return 0;
 }
-
 ```
 
+
 > Output
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/modul%202/jawaban%20no%202.png))
+> ![Screenshot bagian x]()
 
 Program di atas digunakan untuk **mengkuadratkan sebuah bilangan menggunakan konsep *call by reference*** dalam bahasa C++. Variabel `nilai` diinisialisasi dengan angka 5, lalu ditampilkan sebagai nilai awal. Fungsi `kuadratkan(int &x)` menerima parameter berupa *reference* (`&`), sehingga setiap perubahan pada variabel `x` di dalam fungsi akan langsung mengubah nilai asli di luar fungsi. Di dalam fungsi, nilai `x` dikalikan dengan dirinya sendiri (`x = x * x`), sehingga hasilnya adalah kuadrat dari nilai awal. Setelah fungsi dipanggil, program menampilkan nilai yang sudah dikuadratkan, yaitu 25.
 ## Referensi
