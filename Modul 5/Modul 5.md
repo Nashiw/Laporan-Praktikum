@@ -3,7 +3,7 @@
 
 ## Dasar Teori
 
-Singly Linked List adalah struktur data dinamis yang terdiri dari node-node yang terhubung secara linear, di mana setiap node berisi data dan pointer yang menunjuk ke node berikutnya, membentuk rantai searah yang diakhiri NULL. Struktur ini memungkinkan penambahan dan penghapusan elemen secara efisien tanpa perlu pergeseran data, dengan operasi dasar meliputi penyisipan, penghapusan, penelusuran, dan pembaruan data yang diimplementasikan menggunakan pointer untuk mengelola hubungan antar elemen.
+Searching merupakan operasi dasar list dengan melakukan aktivitas pencarian terhadap nodetertentu. Proses ini berjalan dengan mengunjungi setiap node dan berhenti setelah node yang dicari ketemu. Dengan melakukan operasi searching, operasi-operasi seperti insert after, delete after, dan update akan lebih mudah.
 
 ## Guided
 
@@ -196,8 +196,7 @@ int main() {
 
 ### Soal 1
 
-buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan pesanan). program memiliki beberapa menu seperti tambah antrian,  layani antrian(hapus), dan tampilkan antrian. \*antrian pertama harus yang pertama dilayani
-
+buatlah searcing untuk mencari nama pembeli pada unguided sebelumnya
 
 ```go
 #include <iostream>
@@ -266,6 +265,35 @@ void tampilAntrian() {
     cout << endl;
 }
 
+void cariPembeli(string namaCari) {
+    if (isEmpty()) {
+        cout << "📭 Antrian kosong! Tidak ada yang bisa dicari.\n";
+        return;
+    }
+
+    Node *temp = front;
+    int posisi = 1;
+    bool ditemukan = false;
+
+    while (temp != nullptr) {
+        if (temp->nama == namaCari) {
+            cout << "\n✅ Pembeli ditemukan!\n";
+            cout << "Posisi antrian : " << posisi << endl;
+            cout << "Nama Pembeli   : " << temp->nama << endl;
+            cout << "Pesanan        : " << temp->pesanan << endl;
+            cout << "----------------------------\n";
+            ditemukan = true;
+            break;
+        }
+        temp = temp->next;
+        posisi++;
+    }
+
+    if (!ditemukan) {
+        cout << "❌ Pembeli dengan nama \"" << namaCari << "\" tidak ditemukan dalam antrian.\n";
+    }
+}
+
 int main() {
     int pilihan;
     string nama, pesanan;
@@ -277,7 +305,8 @@ int main() {
         cout << "1. Tambah Antrian\n";
         cout << "2. Layani Antrian\n";
         cout << "3. Tampilkan Antrian\n";
-        cout << "4. Keluar\n";
+        cout << "4. Cari Pembeli\n";
+        cout << "5. Keluar\n";
         cout << "==============================\n";
         cout << "Pilih menu: ";
         cin >> pilihan;
@@ -298,6 +327,11 @@ int main() {
                 tampilAntrian();
                 break;
             case 4:
+                cout << "Masukkan Nama Pembeli yang ingin dicari: ";
+                getline(cin, nama);
+                cariPembeli(nama);
+                break;
+            case 5:
                 cout << "👋 Keluar dari program.\n";
                 break;
             default:
@@ -305,103 +339,260 @@ int main() {
         }
 
         cout << endl;
-    } while (pilihan != 4);
+    } while (pilihan != 5);
 
     return 0;
 }
 ```
 
 > Output
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%204/jawaban%201.png)
+> ![Screenshot bagian x]()
  
-Program ini menggunakan **Single Linked List** untuk mengelola antrian pembeli, di mana setiap data disimpan dalam struktur `Node` yang berisi nama, pesanan, dan pointer `next` ke data berikutnya. Pointer `front` menunjuk ke antrian pertama yang akan dilayani terlebih dahulu, sedangkan `rear` menunjuk ke antrian terakhir. Fungsi `tambahAntrian()` digunakan untuk menambah pembeli di bagian belakang antrian, `layaniAntrian()` berfungsi menghapus pembeli paling depan dari antrian sesuai konsep **FIFO (First In, First Out)**, dan `tampilkanAntrian()` menampilkan seluruh data pembeli yang sedang menunggu giliran. Program ini berjalan secara interaktif melalui menu agar pengguna dapat menambah, melayani, dan melihat daftar antrian dengan mudah.
+
 
 ### Soal 2
 
-buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1) 
+gunakan latihan pada pertemuan minggun ini dan tambahkan seardhing untuk mencari buku berdasarkan judul, penulis, dan ISBN
 
 ```go
 #include <iostream>
+#include <string>
 using namespace std;
 
-struct Node {
-    int data;
-    Node* next;
+struct Buku {
+    string isbn;
+    string judul;
+    string penulis;
+    Buku* next;
 };
 
-Node* head = nullptr;
+Buku* head = nullptr;
 
-
-void tambahNode(int nilai) {
-    Node* baru = new Node;
-    baru->data = nilai;
-    baru->next = nullptr;
+void tambahBuku(string isbn, string judul, string penulis) {
+    Buku* newNode = new Buku;
+    newNode->isbn = isbn;
+    newNode->judul = judul;
+    newNode->penulis = penulis;
+    newNode->next = nullptr;
 
     if (head == nullptr) {
-        head = baru;
+        head = newNode;
     } else {
-        Node* temp = head;
+        Buku* temp = head;
         while (temp->next != nullptr) {
             temp = temp->next;
         }
-        temp->next = baru;
+        temp->next = newNode;
     }
+
+    cout << "✅ Buku berhasil ditambahkan!\n";
 }
 
-
-void tampilList() {
+void tampilBuku() {
     if (head == nullptr) {
-        cout << "Linked List kosong." << endl;
+        cout << "📭 Tidak ada data buku.\n";
         return;
     }
 
-    Node* temp = head;
+    Buku* temp = head;
+    cout << "\n📚 Daftar Buku:\n";
     while (temp != nullptr) {
-        cout << temp->data;
-        if (temp->next != nullptr) cout << " -> ";
+        cout << "ISBN    : " << temp->isbn << endl;
+        cout << "Judul   : " << temp->judul << endl;
+        cout << "Penulis : " << temp->penulis << endl;
+        cout << "-------------------------\n";
         temp = temp->next;
     }
-    cout << endl;
 }
 
-
-void reverseList() {
-    Node* prev = nullptr;
-    Node* current = head;
-    Node* next = nullptr;
-
-    while (current != nullptr) {
-        next = current->next;   
-        current->next = prev;   
-        prev = current;         
-        current = next;         
+void hapusBuku(string isbn) {
+    if (head == nullptr) {
+        cout << "⚠️ Daftar buku kosong.\n";
+        return;
     }
-    head = prev; 
+
+    Buku* temp = head;
+    Buku* prev = nullptr;
+
+    while (temp != nullptr && temp->isbn != isbn) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "❌ Buku dengan ISBN " << isbn << " tidak ditemukan.\n";
+        return;
+    }
+
+    if (prev == nullptr)
+        head = head->next;
+    else
+        prev->next = temp->next;
+
+    delete temp;
+    cout << "🗑️ Buku berhasil dihapus!\n";
+}
+
+void perbaruiBuku(string isbn) {
+    Buku* temp = head;
+    while (temp != nullptr && temp->isbn != isbn) {
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "❌ Buku tidak ditemukan.\n";
+        return;
+    }
+
+    cout << "Masukkan judul baru: ";
+    getline(cin, temp->judul);
+    cout << "Masukkan penulis baru: ";
+    getline(cin, temp->penulis);
+
+    cout << "✅ Data buku berhasil diperbarui!\n";
+}
+
+void cariByISBN(string isbn) {
+    Buku* temp = head;
+    bool ditemukan = false;
+
+    while (temp != nullptr) {
+        if (temp->isbn == isbn) {
+            cout << "\n📗 Buku ditemukan:\n";
+            cout << "ISBN    : " << temp->isbn << endl;
+            cout << "Judul   : " << temp->judul << endl;
+            cout << "Penulis : " << temp->penulis << endl;
+            cout << "-------------------------\n";
+            ditemukan = true;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    if (!ditemukan)
+        cout << "❌ Buku dengan ISBN " << isbn << " tidak ditemukan.\n";
+}
+
+void cariByJudul(string judul) {
+    Buku* temp = head;
+    bool ditemukan = false;
+
+    while (temp != nullptr) {
+        if (temp->judul == judul) {
+            if (!ditemukan)
+                cout << "\n📕 Buku dengan judul \"" << judul << "\" ditemukan:\n";
+            cout << "ISBN    : " << temp->isbn << endl;
+            cout << "Penulis : " << temp->penulis << endl;
+            cout << "-------------------------\n";
+            ditemukan = true;
+        }
+        temp = temp->next;
+    }
+
+    if (!ditemukan)
+        cout << "❌ Buku dengan judul \"" << judul << "\" tidak ditemukan.\n";
+}
+
+void cariByPenulis(string penulis) {
+    Buku* temp = head;
+    bool ditemukan = false;
+
+    while (temp != nullptr) {
+        if (temp->penulis == penulis) {
+            if (!ditemukan)
+                cout << "\n📘 Buku karya \"" << penulis << "\" ditemukan:\n";
+            cout << "ISBN  : " << temp->isbn << endl;
+            cout << "Judul : " << temp->judul << endl;
+            cout << "-------------------------\n";
+            ditemukan = true;
+        }
+        temp = temp->next;
+    }
+
+    if (!ditemukan)
+        cout << "❌ Tidak ditemukan buku karya \"" << penulis << "\".\n";
 }
 
 int main() {
+    int pilihan;
+    string isbn, judul, penulis;
 
-    tambahNode(1);
-    tambahNode(2);
-    tambahNode(3);
+    do {
+        cout << "\n=== 📚 MENU DATA BUKU (Single Linked List) ===\n";
+        cout << "1. Tambah Buku\n";
+        cout << "2. Hapus Buku\n";
+        cout << "3. Perbarui Buku\n";
+        cout << "4. Lihat Semua Buku\n";
+        cout << "5. Cari Buku Berdasarkan ISBN\n";
+        cout << "6. Cari Buku Berdasarkan Judul\n";
+        cout << "7. Cari Buku Berdasarkan Penulis\n";
+        cout << "8. Keluar\n";
+        cout << "==============================================\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+        cin.ignore();
 
-    cout << "Linked List sebelum dibalik:\n";
-    tampilList();
+        switch (pilihan) {
+            case 1:
+                cout << "Masukkan ISBN: ";
+                getline(cin, isbn);
+                cout << "Masukkan Judul: ";
+                getline(cin, judul);
+                cout << "Masukkan Penulis: ";
+                getline(cin, penulis);
+                tambahBuku(isbn, judul, penulis);
+                break;
 
-    reverseList();
+            case 2:
+                cout << "Masukkan ISBN buku yang akan dihapus: ";
+                getline(cin, isbn);
+                hapusBuku(isbn);
+                break;
 
-    cout << "\nLinked List setelah dibalik:\n";
-    tampilList();
+            case 3:
+                cout << "Masukkan ISBN buku yang akan diperbarui: ";
+                getline(cin, isbn);
+                perbaruiBuku(isbn);
+                break;
+
+            case 4:
+                tampilBuku();
+                break;
+
+            case 5:
+                cout << "Masukkan ISBN yang ingin dicari: ";
+                getline(cin, isbn);
+                cariByISBN(isbn);
+                break;
+
+            case 6:
+                cout << "Masukkan Judul yang ingin dicari: ";
+                getline(cin, judul);
+                cariByJudul(judul);
+                break;
+
+            case 7:
+                cout << "Masukkan Penulis yang ingin dicari: ";
+                getline(cin, penulis);
+                cariByPenulis(penulis);
+                break;
+
+            case 8:
+                cout << "👋 Program selesai.\n";
+                break;
+
+            default:
+                cout << "❌ Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 8);
 
     return 0;
 }
-
 ```
 
 > Output
-> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%204/jawaban%202.png)
+> ![Screenshot bagian x]()
 
-Program ini menggunakan singly linked list dengan pointer head sebagai penanda node pertama. Fungsi tambahNode() digunakan untuk menambahkan data di akhir list, sedangkan tampilList() menampilkan seluruh isi list. Proses pembalikan dilakukan dalam fungsi reverseList(), di mana setiap node dibalik arah penunjuknya dengan menggunakan tiga pointer bantu (prev, current, dan next). Setelah seluruh pointer dibalik, head diperbarui ke node terakhir, sehingga urutan list menjadi terbalik.
 
 ## Referensi
 
