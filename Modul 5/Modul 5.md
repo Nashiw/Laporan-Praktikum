@@ -3,7 +3,7 @@
 
 ## Dasar Teori
 
-Searching merupakan operasi dasar list dengan melakukan aktivitas pencarian terhadap nodetertentu. Proses ini berjalan dengan mengunjungi setiap node dan berhenti setelah node yang dicari ketemu. Dengan melakukan operasi searching, operasi-operasi seperti insert after, delete after, dan update akan lebih mudah.
+Singly Linked List adalah salah satu struktur data dinamis yang terdiri atas sekumpulan elemen (node) yang saling terhubung menggunakan pointer. Setiap node memiliki dua bagian utama, yaitu bagian data (info) untuk menyimpan nilai dan bagian pointer (next) yang menunjuk ke node berikutnya. Berbeda dengan array yang bersifat statis, linked list memungkinkan penambahan dan penghapusan elemen secara efisien tanpa perlu menggeser data lain. Operasi dasar pada singly linked list meliputi pembuatan list kosong (CreateList), penambahan elemen (Insert), penghapusan elemen (Delete), pencarian elemen (Searching), serta pembaruan data (Update). Pada operasi searching, proses dilakukan dengan menelusuri setiap node dari awal hingga node yang dicari ditemukan, sedangkan operasi insert dan delete digunakan untuk menambah atau menghapus elemen pada posisi tertentu dengan memanfaatkan pointer. Kelebihan singly linked list antara lain ukuran yang fleksibel dan efisiensi dalam penambahan serta penghapusan data, sedangkan kekurangannya adalah akses data yang harus dilakukan secara berurutan dan kebutuhan memori tambahan untuk pointer. Secara keseluruhan, singly linked list menjadi dasar penting dalam memahami struktur data yang lebih kompleks seperti doubly linked list dan circular linked list.
 
 ## Guided
 
