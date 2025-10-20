@@ -591,7 +591,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%205/jawaban%202.png)
 
 
 ## Referensi
