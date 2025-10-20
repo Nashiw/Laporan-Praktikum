@@ -587,6 +587,9 @@ int main() {
 
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%205/jawaban%201.png)
+
+Program di atas merupakan simulasi sistem antrian pembeli menggunakan struktur data **linked list** dalam bahasa C++. Setiap pembeli direpresentasikan sebagai node yang menyimpan nama, pesanan, dan pointer ke node berikutnya. Dua pointer utama, yaitu `front` dan `rear`, digunakan untuk menandai elemen pertama dan terakhir dalam antrian. Program menyediakan beberapa fungsi utama, seperti `tambahAntrian()` untuk menambahkan pembeli ke akhir antrian, `layaniAntrian()` untuk menghapus pembeli yang berada di posisi terdepan, `tampilAntrian()` untuk menampilkan seluruh pembeli yang sedang menunggu, dan `cariPembeli()` untuk mencari pembeli berdasarkan nama. Proses antrian mengikuti konsep **FIFO (First In First Out)**, di mana pembeli yang datang lebih dulu akan dilayani terlebih dahulu. Melalui menu interaktif di fungsi `main()`, pengguna dapat menambah, melayani, menampilkan, dan mencari pembeli dalam antrian. Secara keseluruhan, program ini menggambarkan bagaimana konsep antrian dapat diimplementasikan secara dinamis menggunakan pointer dalam linked list.
+
  
 
 
@@ -832,6 +835,8 @@ int main() {
 
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%205/jawaban%202.png)
+
+Program di atas merupakan aplikasi manajemen data buku yang menggunakan struktur data **Single Linked List** dalam bahasa C++. Setiap buku disimpan dalam sebuah node yang berisi informasi berupa **ISBN**, **judul**, dan **penulis**, serta pointer `next` yang menghubungkan ke node berikutnya. Pointer `head` digunakan untuk menandai buku pertama dalam daftar. Program ini menyediakan berbagai fungsi seperti `tambahBuku()` untuk menambahkan buku baru ke akhir daftar, `tampilBuku()` untuk menampilkan seluruh data buku, `hapusBuku()` untuk menghapus buku berdasarkan ISBN, `perbaruiBuku()` untuk memperbarui informasi buku, serta fungsi pencarian seperti `cariByISBN()`, `cariByJudul()`, dan `cariByPenulis()` untuk mencari data berdasarkan kriteria tertentu. Melalui menu interaktif di fungsi `main()`, pengguna dapat memilih operasi yang diinginkan seperti menambah, menghapus, memperbarui, menampilkan, atau mencari buku. Secara keseluruhan, program ini menunjukkan bagaimana konsep **linked list** dapat digunakan untuk mengelola data secara dinamis dan efisien tanpa perlu menggeser posisi data lainnya.
 
 
 ## Referensi
