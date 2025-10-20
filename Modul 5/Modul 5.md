@@ -187,7 +187,7 @@ int main() {
 }
 ```
 
-### LINKEDLIST.CPP
+### SEARCHING.CPP
 ```go
 
 ```
