@@ -313,3 +313,18 @@ no polisi : D001
 warna     : hitam
 tahun     : 90
 ```
+
+## doublylist.h
+```go
+
+```
+
+## doublylist.cpp
+```go
+
+```
+
+## main.cpp
+```go
+
+```
