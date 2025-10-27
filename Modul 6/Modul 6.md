@@ -328,3 +328,16 @@ tahun     : 90
 ```go
 
 ```
+
+> Output
+> ![Screenshot bagian x]()
+
+Program ini merupakan implementasi struktur data **Doubly Linked List** untuk menyimpan data kendaraan yang terdiri dari nomor polisi, warna, dan tahun pembuatan. Setiap data disimpan dalam node yang memiliki dua pointer (`next` dan `prev`) sehingga dapat ditelusuri maju dan mundur. Program memungkinkan pengguna menambahkan data kendaraan baru ke dalam list, namun terlebih dahulu memeriksa apakah nomor polisi sudah terdaftar menggunakan fungsi pencarian. Jika belum, data dimasukkan di bagian akhir list melalui prosedur `insertLast`. Setelah input selesai, seluruh data kendaraan ditampilkan ke layar dengan menelusuri list dari elemen terakhir ke awal menggunakan prosedur `printInfo`.
+
+## Referensi
+1. https://www.w3schools.com/dsa/dsa_theory_linkedlists.php
+2. https://www.w3schools.com/dsa/dsa_data_linkedlists_types.php
+3. https://www.w3schools.com/dsa/dsa_algo_linkedlists_operations.php
+4. https://www.w3schools.com/dsa/dsa_theory_linkedlists_memory.php
+5. https://www.w3schools.com/dsa/dsa_examples.php
+
