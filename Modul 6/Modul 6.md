@@ -318,7 +318,6 @@ tahun     : 90
 ```go
 #ifndef DOUBLYLIST_H
 #define DOUBLYLIST_H
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -347,8 +346,8 @@ struct List {
 void createList(List &L);
 address alokasi(infotype x);
 void dealokasi(address &P);
-void insertLast(List &L, address P);
 void printInfo(List L);
+void insertLast(List &L, address P);
 address findElm(List L, string nopol);
 void deleteFirst(List &L, address &P);
 void deleteLast(List &L, address &P);
@@ -359,28 +358,43 @@ void deleteAfter(address Prec, address &P);
 
 ## doublylist.cpp
 ```go
-#include "Doublylist.h"
+#include "doublylist.h"
 
 void createList(List &L) {
-    L.first = NULL;
-    L.last = NULL;
+    L.first = nullptr;
+    L.last = nullptr;
 }
 
 address alokasi(infotype x) {
     address P = new ElmList;
     P->info = x;
-    P->next = NULL;
-    P->prev = NULL;
+    P->next = nullptr;
+    P->prev = nullptr;
     return P;
 }
 
 void dealokasi(address &P) {
     delete P;
-    P = NULL;
+    P = nullptr;
+}
+
+void printInfo(List L) {
+    if (L.first == nullptr) {
+        cout << "List kosong.\n";
+        return;
+    }
+    address P = L.first;
+    cout << "DATA LIST:\n";
+    while (P != nullptr) {
+        cout << "No Polisi : " << P->info.nopol << endl;
+        cout << "Warna     : " << P->info.warna << endl;
+        cout << "Tahun     : " << P->info.thnBuat << endl << endl;
+        P = P->next;
+    }
 }
 
 void insertLast(List &L, address P) {
-    if (L.first == NULL) {
+    if (L.first == nullptr) {
         L.first = P;
         L.last = P;
     } else {
@@ -390,130 +404,119 @@ void insertLast(List &L, address P) {
     }
 }
 
-void printInfo(List L) {
-    address P = L.first;
-    if (P == NULL) {
-        cout << "List kosong." << endl;
-        return;
-    }
-    cout << "Data kendaraan dalam list:" << endl;
-    while (P != NULL) {
-        cout << "Nopol : " << P->info.nopol
-             << ", Warna : " << P->info.warna
-             << ", Tahun : " << P->info.thnBuat << endl;
-        P = P->next;
-    }
-    cout << endl;
-}
-
 address findElm(List L, string nopol) {
     address P = L.first;
-    while (P != NULL) {
+    while (P != nullptr) {
         if (P->info.nopol == nopol) {
             return P;
         }
         P = P->next;
     }
-    return NULL;
+    return nullptr;
 }
 
 void deleteFirst(List &L, address &P) {
-    if (L.first != NULL) {
+    if (L.first == nullptr) {
+        P = nullptr;
+    } else if (L.first == L.last) {
         P = L.first;
-        if (L.first == L.last) {
-            L.first = NULL;
-            L.last = NULL;
-        } else {
-            L.first = L.first->next;
-            L.first->prev = NULL;
-            P->next = NULL;
-        }
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
+        P = L.first;
+        L.first = P->next;
+        L.first->prev = nullptr;
+        P->next = nullptr;
     }
 }
 
 void deleteLast(List &L, address &P) {
-    if (L.last != NULL) {
+    if (L.first == nullptr) {
+        P = nullptr;
+    } else if (L.first == L.last) {
+        P = L.first;
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
         P = L.last;
-        if (L.first == L.last) {
-            L.first = NULL;
-            L.last = NULL;
-        } else {
-            L.last = L.last->prev;
-            L.last->next = NULL;
-            P->prev = NULL;
-        }
+        L.last = P->prev;
+        L.last->next = nullptr;
+        P->prev = nullptr;
     }
 }
 
 void deleteAfter(address Prec, address &P) {
-    if (Prec != NULL && Prec->next != NULL) {
+    if (Prec != nullptr && Prec->next != nullptr) {
         P = Prec->next;
         Prec->next = P->next;
-        if (P->next != NULL) {
+        if (P->next != nullptr) {
             P->next->prev = Prec;
         }
-        P->next = NULL;
-        P->prev = NULL;
+        P->next = nullptr;
+        P->prev = nullptr;
     }
 }
 ```
 
 ## main.cpp
 ```go
-#include "Doublylist.h"
+#include "doublylist.h"
 
 int main() {
     List L;
     createList(L);
 
-    kendaraan k1 = {"D001", "Merah", 2020};
-    kendaraan k2 = {"D002", "Hitam", 2018};
-    kendaraan k3 = {"D003", "Putih", 2022};
-    kendaraan k4 = {"D004", "Biru", 2021};
+    infotype x;
+    address P;
 
-    insertLast(L, alokasi(k1));
-    insertLast(L, alokasi(k2));
-    insertLast(L, alokasi(k3));
-    insertLast(L, alokasi(k4));
+    cout << "Masukkan data kendaraan (3 data)\n";
+    for (int i = 0; i < 3; i++) {
+        cout << "Masukkan nomor polisi: ";
+        cin >> x.nopol;
+        cout << "Masukkan warna kendaraan: ";
+        cin >> x.warna;
+        cout << "Masukkan tahun kendaraan: ";
+        cin >> x.thnBuat;
+        cout << endl;
 
-    cout << "=== DATA AWAL ===" << endl;
+        P = alokasi(x);
+        insertLast(L, P);
+    }
+
     printInfo(L);
 
-    address found = findElm(L, "D001");
-    if (found != NULL) {
-        cout << "Data ditemukan: "
-             << found->info.nopol << ", "
-             << found->info.warna << ", "
-             << found->info.thnBuat << endl;
+    cout << "Masukkan nomor polisi yang ingin dicari: ";
+    string cari;
+    cin >> cari;
+    address found = findElm(L, cari);
+    if (found != nullptr) {
+        cout << "Ditemukan!\n";
+        cout << "Nomor Polisi: " << found->info.nopol << endl;
+        cout << "Warna       : " << found->info.warna << endl;
+        cout << "Tahun       : " << found->info.thnBuat << endl;
     } else {
-        cout << "Data tidak ditemukan!" << endl;
+        cout << "Nomor polisi tidak ditemukan.\n";
     }
 
-    cout << endl;
+    cout << "\nMasukkan nomor polisi yang akan dihapus: ";
+    string hapus;
+    cin >> hapus;
+    address del = findElm(L, hapus);
 
-    address del;
-    deleteFirst(L, del);
-    dealokasi(del);
-
-    cout << "=== DATA SETELAH HAPUS FIRST ===" << endl;
-    printInfo(L);
-
-    address prec = findElm(L, "D002");
-    if (prec != NULL) {
-        deleteAfter(prec, del);
-        if (del != NULL) {
-            cout << "Menghapus data setelah D002 yaitu: " 
-                 << del->info.nopol << endl;
-            dealokasi(del);
-        }
+    if (del == nullptr) {
+        cout << "Nomor polisi tidak ditemukan.\n";
+    } else if (del == L.first) {
+        deleteFirst(L, P);
+        dealokasi(P);
+    } else if (del == L.last) {
+        deleteLast(L, P);
+        dealokasi(P);
+    } else {
+        deleteAfter(del->prev, P);
+        dealokasi(P);
     }
 
-    cout << "=== DATA SETELAH DELETE AFTER D002 ===" << endl;
-    printInfo(L);
-
-    dealokasi(del);
-
-    cout << "=== DATA SETELAH HAPUS LAST ===" << endl;
+    cout << "\nSetelah penghapusan:\n";
     printInfo(L);
 
     return 0;
