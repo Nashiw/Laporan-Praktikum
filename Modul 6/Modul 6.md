@@ -524,9 +524,10 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%206/Screenshot%202025-10-28%20113003.png)
 
-Program Di atas adalah
+Program ini merupakan implementasi **ADT Doubly Linked List** untuk menyimpan data kendaraan yang terdiri dari nomor polisi, warna, dan tahun pembuatan. Struktur program dibagi menjadi tiga file, yaitu `doublylist.h` untuk mendefinisikan tipe data dan deklarasi fungsi, `doublylist.cpp` untuk mengimplementasikan fungsi seperti membuat list, menambah data di akhir, menampilkan isi list, mencari elemen berdasarkan nomor polisi, serta menghapus elemen di awal, akhir, atau setelah elemen tertentu, dan `main.cpp` sebagai program utama yang menguji seluruh fungsi tersebut. Program bekerja dengan membuat list kosong, meminta pengguna memasukkan beberapa data kendaraan, menampilkan seluruh data, mencari kendaraan tertentu menggunakan fungsi `findElm`, serta menghapus data sesuai posisi yang ditemukan. Konsep utama yang digunakan adalah **doubly linked list** yang memungkinkan pergerakan dua arah melalui pointer `next` dan `prev`, serta prinsip **ADT (Abstract Data Type)** untuk menjaga struktur program tetap modular dan mudah dipelihara.
+
 
 ## Referensi
 1. https://www.w3schools.com/dsa/dsa_theory_linkedlists.php
