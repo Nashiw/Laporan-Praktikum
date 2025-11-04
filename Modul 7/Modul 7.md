@@ -442,7 +442,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/jawaban%203.png)
 
 Pada program ketiga, 
 
