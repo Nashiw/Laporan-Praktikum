@@ -200,7 +200,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/jawaban%201.png)
 
-Pada program pertama, 
+Pada program pertama,dibuat sebuah ADT Stack yang diimplementasikan menggunakan array. Stack memiliki atribut berupa array info untuk menyimpan data dan variabel top sebagai penanda elemen paling atas pada stack. Fungsi createStack() digunakan untuk menginisialisasi stack dalam kondisi kosong dengan menetapkan nilai top = -1. Operasi push() berfungsi untuk menambahkan elemen baru ke bagian atas stack selama kapasitas belum penuh, sedangkan pop() digunakan untuk menghapus elemen teratas dan mengembalikannya. Prosedur printInfo() menampilkan isi stack mulai dari elemen teratas hingga elemen paling bawah. Selain itu, tersedia prosedur balikStack() yang membalik urutan elemen dalam stack dengan memindahkan elemen satu per satu ke stack sementara, lalu mengembalikannya sehingga urutannya menjadi terbalik. Secara keseluruhan, stack pada nomor ini bekerja mengikuti prinsip LIFO (Last In First Out). 
 
 ### Soal 2
 
@@ -325,7 +325,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/jawaban%202.png)
 
-Pada program kedua, 
+Pada program kedua,ditambahkan prosedur pushAscending() yang berfungsi untuk mempertahankan urutan elemen dalam stack tetap ascending (menaik) dari bawah ke atas setelah proses penyisipan data. Cara kerjanya adalah dengan membuat stack sementara, kemudian memindahkan elemen-elemen yang memiliki nilai lebih besar dibandingkan nilai yang akan disisipkan ke stack sementara tersebut. Setelah posisi yang tepat ditemukan, data baru dimasukkan ke stack utama menggunakan push(). Selanjutnya, semua elemen dari stack sementara dipindahkan kembali ke stack utama. Dengan mekanisme ini, urutan ascending pada stack tetap terjaga meskipun proses penyisipan dilakukan berulang-ulang. Ketika stack ditampilkan dengan printInfo(), nilai yang terlihat dari atas ke bawah menjadi tampak seperti descending, namun sebenarnya dari bawah ke atas tersusun ascending. 
 
 ### Soal 3
 
@@ -444,7 +444,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/jawaban%203.png)
 
-Pada program ketiga, 
+Pada program ketiga,ditambahkan prosedur getInputStream() yang memungkinkan program membaca input pengguna secara langsung dalam bentuk karakter satu per satu tanpa perlu dipisahkan spasi. Proses pembacaan dilakukan menggunakan cin.get() sehingga setiap karakter yang dimasukkan dapat diproses hingga pengguna menekan tombol ENTER sebagai tanda selesai. Jika karakter yang terbaca merupakan angka, maka karakter tersebut dikonversi menjadi nilai integer dan dimasukkan ke dalam stack menggunakan push(). Dengan cara ini, pengguna dapat memasukkan deretan angka seperti string, misalnya 4729601, dan angka-angka tersebut otomatis disimpan dalam stack secara berurutan sesuai urutan input. Dengan demikian, getInputStream() memberikan cara input yang lebih fleksibel dan sederhana bagi pengguna saat mengisi stack.
 
 ## Referensi
 1. https://www.w3schools.com/cpp/cpp_functions.asp
