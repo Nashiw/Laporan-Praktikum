@@ -204,7 +204,7 @@ int main() {
 Pada program pertama,dibuat sebuah ADT Stack yang diimplementasikan menggunakan array. Stack memiliki atribut berupa array info untuk menyimpan data dan variabel top sebagai penanda elemen paling atas pada stack. Fungsi createStack() digunakan untuk menginisialisasi stack dalam kondisi kosong dengan menetapkan nilai top = -1. Operasi push() berfungsi untuk menambahkan elemen baru ke bagian atas stack selama kapasitas belum penuh, sedangkan pop() digunakan untuk menghapus elemen teratas dan mengembalikannya. Prosedur printInfo() menampilkan isi stack mulai dari elemen teratas hingga elemen paling bawah. Selain itu, tersedia prosedur balikStack() yang membalik urutan elemen dalam stack dengan memindahkan elemen satu per satu ke stack sementara, lalu mengembalikannya sehingga urutannya menjadi terbalik. Secara keseluruhan, stack pada nomor ini bekerja mengikuti prinsip LIFO (Last In First Out). 
 
 ### Soal 2
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/soal%202.png)
 
 ### stack.h
 ```go
