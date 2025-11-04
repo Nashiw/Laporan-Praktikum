@@ -87,7 +87,7 @@ int main()
 ## Unguide
 
 ### Soal 1
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/soal%201.png)
 
 ### stack.h
 ```go
