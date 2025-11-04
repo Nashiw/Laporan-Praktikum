@@ -330,7 +330,7 @@ int main() {
 Pada program kedua,ditambahkan prosedur pushAscending() yang berfungsi untuk mempertahankan urutan elemen dalam stack tetap ascending (menaik) dari bawah ke atas setelah proses penyisipan data. Cara kerjanya adalah dengan membuat stack sementara, kemudian memindahkan elemen-elemen yang memiliki nilai lebih besar dibandingkan nilai yang akan disisipkan ke stack sementara tersebut. Setelah posisi yang tepat ditemukan, data baru dimasukkan ke stack utama menggunakan push(). Selanjutnya, semua elemen dari stack sementara dipindahkan kembali ke stack utama. Dengan mekanisme ini, urutan ascending pada stack tetap terjaga meskipun proses penyisipan dilakukan berulang-ulang. Ketika stack ditampilkan dengan printInfo(), nilai yang terlihat dari atas ke bawah menjadi tampak seperti descending, namun sebenarnya dari bawah ke atas tersusun ascending. 
 
 ### Soal 3
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%207/soal%203.png)
 
 ### stack.h
 ```go
