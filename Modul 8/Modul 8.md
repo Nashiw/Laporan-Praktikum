@@ -104,9 +104,10 @@ int main() {
 
 > Output
 > 
-> ![Screenshot bagian x](OUTPUT/guided1.png)
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%208/Screenshot%202025-11-18%20075538.png)
 
-Program guided1.cpp merupakan implementasi struktur data Queue menggunakan array statis berukuran lima elemen yang bekerja dengan prinsip FIFO (First In First Out), di mana elemen pertama yang masuk akan keluar terlebih dahulu. Struktur queue memiliki atribut data, head, dan tail untuk menyimpan elemen serta menandai posisi awal dan akhir antrian. Program menyediakan fungsi enqueue() untuk menambah data ke bagian belakang antrian dan dequeue() untuk menghapus data dari bagian depan dengan menggeser elemen lain ke kiri. Dalam fungsi utama, program menambahkan beberapa elemen ke antrian, menghapus sebagian, dan menampilkan hasilnya setelah setiap operasi. Melalui program ini, pengguna dapat memahami proses dasar antrian seperti penambahan, penghapusan, dan pengecekan kondisi penuh atau kosong menggunakan representasi array di C++.
+Program di atas adalah implementasi struktur data **Queue** berbasis array dengan ukuran maksimal lima elemen, menggunakan konsep **FIFO**. Queue memiliki operasi utama yaitu `enqueue()` untuk menambah data di belakang antrian dan `dequeue()` untuk menghapus data dari depan, lengkap dengan pengecekan kondisi penuh dan kosong. Saat data dihapus, elemen-elemen digeser ke kiri untuk menjaga posisi antrian. Program `main()` menampilkan contoh penggunaan queue dengan beberapa proses penambahan, penghapusan, dan penampilan isi antrian untuk memperlihatkan cara kerja struktur data tersebut.
+
 
 ## UNGUIDED
 
@@ -115,17 +116,114 @@ Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekan
 queue Alternatif 1 (head diam, tail bergerak).
 
 #### queue.h
-```
+```c++
+#ifndef QUEUE_H
+#define QUEUE_H
 
+typedef int infotype;
+
+typedef struct {
+    infotype info[5];
+    int head;
+    int tail;
+} Queue;
+
+void createQueue(Queue &Q);
+bool isEmptyQueue(Queue Q);
+bool isFullQueue(Queue Q);
+void enqueue(Queue &Q, infotype x);
+infotype dequeue(Queue &Q);
+void printInfo(Queue Q);
+
+#endif
 ```
 #### queue.cpp
-```
+```c++
+#include <iostream>
+#include "queue.h"
+using namespace std;
 
+void createQueue(Queue &Q) {
+    Q.head = 0;
+    Q.tail = -1;
+    for(int i = 0; i < 5; i++) {
+        Q.info[i] = 0;
+    }
+}
+
+bool isEmptyQueue(Queue Q) {
+    return (Q.tail < Q.head);
+}
+
+bool isFullQueue(Queue Q) {
+    return (Q.tail == 4);
+}
+
+void enqueue(Queue &Q, infotype x) {
+    if (!isFullQueue(Q)) {
+        Q.tail++;
+        Q.info[Q.tail] = x;
+    } else {
+        cout << "Queue Penuh!" << endl;
+    }
+}
+
+infotype dequeue(Queue &Q) {
+    if (!isEmptyQueue(Q)) {
+        infotype x = Q.info[Q.head];
+
+        for (int i = 0; i < Q.tail; i++) {
+            Q.info[i] = Q.info[i + 1];
+        }
+
+        Q.tail--;
+        return x;
+    } else {
+        cout << "Queue Kosong!" << endl;
+        return -1;
+    }
+}
+
+void printInfo(Queue Q) {
+    cout << "H=" << Q.head << ", T=" << Q.tail << " | Queue Info : ";
+
+    if (isEmptyQueue(Q)) {
+        cout << "empty queue" << endl;
+        return;
+    }
+
+    for (int i = Q.head; i <= Q.tail; i++) {
+        cout << Q.info[i] << " ";
+    }
+    cout << endl;
+}
 ```
 
 #### main.cpp
-```
+```c++
+#include <iostream>
+#include "queue.h"
+using namespace std;
 
+int main() {
+    cout << "Hello World" << endl;
+    Queue Q;
+    createQueue(Q);
+
+    cout << "--------------------------" << endl;
+    cout << "H - T \t | Queue info" << endl;
+    cout << "--------------------------" << endl;
+
+    printInfo(Q);
+    enqueue(Q, 5); printInfo(Q);
+    enqueue(Q, 2); printInfo(Q);
+    enqueue(Q, 7); printInfo(Q);
+    enqueue(Q, 4); printInfo(Q);
+    dequeue(Q); printInfo(Q);
+    dequeue(Q); printInfo(Q);
+
+    return 0;
+}
 ```
 > Output soal 1
 > 
