@@ -120,13 +120,13 @@ queue Alternatif 1 (head diam, tail bergerak).
 #ifndef QUEUE_H
 #define QUEUE_H
 
+const int MAX = 5;
 typedef int infotype;
 
-typedef struct {
-    infotype info[5];
-    int head;
-    int tail;
-} Queue;
+struct Queue {
+    infotype info[MAX];
+    int head, tail;
+};
 
 void createQueue(Queue &Q);
 bool isEmptyQueue(Queue Q);
@@ -144,48 +144,53 @@ void printInfo(Queue Q);
 using namespace std;
 
 void createQueue(Queue &Q) {
-    Q.head = 0;
+    Q.head = -1;
     Q.tail = -1;
-    for(int i = 0; i < 5; i++) {
-        Q.info[i] = 0;
-    }
 }
 
 bool isEmptyQueue(Queue Q) {
-    return (Q.tail < Q.head);
+    return (Q.head == -1 && Q.tail == -1);
 }
 
 bool isFullQueue(Queue Q) {
-    return (Q.tail == 4);
+    return (Q.tail == MAX - 1);
 }
 
 void enqueue(Queue &Q, infotype x) {
-    if (!isFullQueue(Q)) {
-        Q.tail++;
+    if (isFullQueue(Q)) {
+        cout << "Queue penuh!" << endl;
+        return;
+    }
+
+    if (isEmptyQueue(Q)) {
+        Q.head = 0;
+        Q.tail = 0;
         Q.info[Q.tail] = x;
     } else {
-        cout << "Queue Penuh!" << endl;
+        Q.tail++;
+        Q.info[Q.tail] = x;
     }
 }
 
 infotype dequeue(Queue &Q) {
-    if (!isEmptyQueue(Q)) {
-        infotype x = Q.info[Q.head];
-
-        for (int i = 0; i < Q.tail; i++) {
-            Q.info[i] = Q.info[i + 1];
-        }
-
-        Q.tail--;
-        return x;
-    } else {
-        cout << "Queue Kosong!" << endl;
+    if (isEmptyQueue(Q)) {
+        cout << "Queue kosong!" << endl;
         return -1;
     }
+
+    infotype x = Q.info[Q.head];
+
+    if (Q.head == Q.tail) {  
+        createQueue(Q);      
+    } else {
+        Q.head++;
+    }
+
+    return x;
 }
 
 void printInfo(Queue Q) {
-    cout << "H=" << Q.head << ", T=" << Q.tail << " | Queue Info : ";
+    cout << Q.head << " - " << Q.tail << "\t|\t";
 
     if (isEmptyQueue(Q)) {
         cout << "empty queue" << endl;
@@ -207,20 +212,22 @@ using namespace std;
 
 int main() {
     cout << "Hello World" << endl;
+
     Queue Q;
     createQueue(Q);
 
-    cout << "--------------------------" << endl;
-    cout << "H - T \t | Queue info" << endl;
-    cout << "--------------------------" << endl;
-
+    cout << "------------------------" << endl;
+    cout << " H - T \t | Queue info" << endl;
+    cout << "------------------------" << endl;
     printInfo(Q);
+
     enqueue(Q, 5); printInfo(Q);
     enqueue(Q, 2); printInfo(Q);
     enqueue(Q, 7); printInfo(Q);
+    dequeue(Q);   printInfo(Q);
     enqueue(Q, 4); printInfo(Q);
-    dequeue(Q); printInfo(Q);
-    dequeue(Q); printInfo(Q);
+    dequeue(Q);   printInfo(Q);
+    dequeue(Q);   printInfo(Q);
 
     return 0;
 }
@@ -229,7 +236,7 @@ int main() {
 > 
 > ![Screenshot bagian x]()
 
-Program ini 
+Program ini dibuat menggunakan array statis di mana head selalu berada pada indeks awal (0), sedangkan tail bergerak maju saat enqueue. Ketika dequeue, head hanya naik sementara, tetapi jika queue kembali kosong, head dan tail di-reset ke −1. Cara ini sederhana namun tidak efisien karena ruang kosong di depan array tidak bisa dipakai kembali; akibatnya queue bisa dianggap penuh meskipun masih ada slot kosong setelah beberapa operasi dequeue.
 
 
 ### Soal 2
@@ -237,15 +244,77 @@ Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekan
 queue Alternatif 2 (head bergerak, tail bergerak).
 
 #### queue.cpp
-```
+```c++
+#include <iostream>
+#include "queue.h"
+using namespace std;
 
+void createQueue(Queue &Q){
+    Q.head = -1;
+    Q.tail = -1;
+}
+
+bool isEmptyQueue(Queue Q){
+    return (Q.head == -1 && Q.tail == -1);
+}
+
+bool isFullQueue(Queue Q){
+    return (Q.tail == MAX - 1);
+}
+
+void enqueue(Queue &Q, infotype x){
+    if (isFullQueue(Q)){
+        cout << "Queue penuh!" << endl;
+        return;
+    }
+
+    if (isEmptyQueue(Q)){
+        Q.head = 0;
+        Q.tail = 0;
+        Q.info[Q.tail] = x;
+    } else {
+        Q.tail++;
+        Q.info[Q.tail] = x;
+    }
+}
+
+infotype dequeue(Queue &Q){
+    if (isEmptyQueue(Q)){
+        cout << "Queue kosong!" << endl;
+        return -1;
+    }
+
+    infotype val = Q.info[Q.head];
+
+    if (Q.head == Q.tail){
+        createQueue(Q);
+    } else {
+        Q.head++;  
+    }
+
+    return val;
+}
+
+void printInfo(Queue Q){
+    cout << Q.head << " - " << Q.tail << "\t|\t";
+
+    if (isEmptyQueue(Q)){
+        cout << "empty queue" << endl;
+        return;
+    }
+
+    for (int i = Q.head; i <= Q.tail; i++){
+        cout << Q.info[i] << " ";
+    }
+    cout << endl;
+}
 ```
 
 > Output soal 2
 > 
 > ![Screenshot bagian x]()
 
-Program ini
+Program ini baik head maupun tail bergerak maju mengikuti operasi enqueue dan dequeue. Pendekatan ini lebih realistis karena elemen yang keluar benar-benar dilewati oleh head. Namun tetap tidak efisien karena array tidak berputar; ketika tail mencapai ujung array, queue dianggap penuh walaupun masih ada ruang kosong di depan akibat dequeuing.
 
 
 ### Soal 3
@@ -253,15 +322,81 @@ Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekan
 queue Alternatif 3 (head dan tail berputar).
 
 #### queue.cpp
-```
+```c++
+#include <iostream>
+#include "queue.h"
+using namespace std;
 
+void createQueue(Queue &Q){
+    Q.head = -1;
+    Q.tail = -1;
+}
+
+bool isEmptyQueue(Queue Q){
+    return (Q.head == -1);
+}
+
+bool isFullQueue(Queue Q){
+    return ((Q.tail + 1) % MAX == Q.head);
+}
+
+void enqueue(Queue &Q, infotype x){
+    if (isFullQueue(Q)){
+        cout << "Queue penuh!" << endl;
+        return;
+    }
+
+    if (isEmptyQueue(Q)){
+        Q.head = 0;
+        Q.tail = 0;
+        Q.info[Q.tail] = x;
+    } else {
+        Q.tail = (Q.tail + 1) % MAX;
+        Q.info[Q.tail] = x;
+    }
+}
+
+infotype dequeue(Queue &Q){
+    if (isEmptyQueue(Q)){
+        cout << "Queue kosong!" << endl;
+        return -1;
+    }
+
+    infotype val = Q.info[Q.head];
+
+    if (Q.head == Q.tail){  
+        createQueue(Q);     
+    } else {
+        Q.head = (Q.head + 1) % MAX;
+    }
+
+    return val;
+}
+
+void printInfo(Queue Q){
+    cout << Q.head << " - " << Q.tail << "\t|\t";
+
+    if (isEmptyQueue(Q)){
+        cout << "empty queue" << endl;
+        return;
+    }
+
+    int i = Q.head;
+    while (true){
+        cout << Q.info[i] << " ";
+        if (i == Q.tail) break;
+        i = (i + 1) % MAX;
+    }
+
+    cout << endl;
+}
 ```
 
 > Output soal 3
 > 
 > ![Screenshot bagian x]()
 > 
-Program ini
+Program ini menggunakan konsep circular sehingga head dan tail berputar kembali ke indeks 0 menggunakan operasi modulo. Ruang kosong akibat dequeue dapat digunakan kembali, dan queue hanya penuh jika (tail + 1) % MAX == head. Implementasi ini paling efisien karena memaksimalkan penggunaan array dan sangat cocok untuk sistem antrian yang berjalan terus-menerus.
 
 ## Referensi
 
