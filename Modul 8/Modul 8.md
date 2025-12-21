@@ -391,6 +391,11 @@ void printInfo(Queue Q){
 Program ini menggunakan konsep circular sehingga head dan tail berputar kembali ke indeks 0 menggunakan operasi modulo. Ruang kosong akibat dequeue dapat digunakan kembali, dan queue hanya penuh jika (tail + 1) % MAX == head. Implementasi ini paling efisien karena memaksimalkan penggunaan array dan sangat cocok untuk sistem antrian yang berjalan terus-menerus.
 
 ## Referensi
-
+1. https://www.w3schools.com/cpp/cpp_queues.asp
+2. https://www.w3schools.com/dsa/dsa_data_queues.php
+3. https://www.w3schools.com/cpp/cpp_data_structures.asp
+4. https://www.w3schools.com/cpp/exercise.asp?x=xrcise_queues1
+5. https://www.w3schools.com/dsa/dsa_intro.php
+6. https://www.w3schools.com/dsa/dsa_data_structures.php
 
 
