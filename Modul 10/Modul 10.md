@@ -203,7 +203,7 @@ int main()
 ## Unguide
 
 ### Soal 1
-> ![Soal]()
+> ![Soal](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2010/soal1.png)
 
 ## bstree.h
 ```go
@@ -307,9 +307,9 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2010/jawaban1.png )
 
-Program di atas 
+Program di atas menjelaskan sebuah ADT Binary Search Tree (BST) menggunakan struktur linked list, di mana setiap node memiliki tiga komponen yaitu info untuk menyimpan data bertipe integer, serta dua pointer left dan right yang menunjuk ke anak kiri dan kanan. Implementasi BST dilakukan melalui beberapa fungsi utama, yaitu alokasi untuk membuat node baru, insertNode untuk memasukkan data ke dalam tree sesuai aturan BST (nilai lebih kecil ke kiri dan lebih besar ke kanan), findNode untuk mencari data tertentu, serta InOrder untuk menampilkan isi tree secara terurut. Dengan menggunakan traversal inorder, data yang tersimpan di BST dapat ditampilkan dalam urutan menaik, sehingga membuktikan bahwa struktur BST telah bekerja dengan benar.
 
 
 ### Soal 2
@@ -471,12 +471,12 @@ int main() {
 
 ```
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x]( https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2010/jawaban2.png)
 
-Program di atas
+Program di atas menjelaskan dan menambahkan beberapa fungsi rekursif untuk melakukan perhitungan pada BST, yaitu hitungJumlahNode, hitungTotalInfo, dan hitungKedalaman. Fungsi hitungJumlahNode digunakan untuk menghitung total node yang ada di dalam tree dengan cara menjumlahkan node saat ini dengan node di subtree kiri dan kanan. Fungsi hitungTotalInfo berfungsi untuk menjumlahkan seluruh nilai info dari setiap node dalam BST. Sementara itu, fungsi hitungKedalaman digunakan untuk menentukan kedalaman maksimum tree dengan menelusuri jalur terpanjang dari root ke node daun. Ketiga fungsi tersebut memanfaatkan konsep rekursi karena struktur BST yang bersifat hierarkis, sehingga perhitungan dapat dilakukan secara efektif dan sistematis.
 
 ### Soal 3
-> ![Soal]( )
+> ![Soal](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2010/soal3.png)
 
 ## no3.cpp
 ```go
@@ -550,7 +550,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2010/jawaban%203.png)
 
 Program di atas menjelaskan Traversal pre-order iteratif menggunakan satu stack dengan prinsip LIFO (Last In First Out), dimulai dengan memasukkan root ke stack lalu selama stack tidak kosong: pop node, cetak datanya, lalu push anak kanan dulu baru kiri agar anak kiri diproses lebih dulu, menghasilkan urutan 6 4 2 1 3 5 7. Sedangkan post-order iteratif menggunakan dua stack: stack pertama untuk menelusuri node dengan memasukkan anak kiri dulu baru kanan, sementara stack kedua menyimpan node dalam urutan terbalik, yang akhirnya dicetak dari atas ke bawah untuk menghasilkan urutan 1 3 2 5 4 7 6. Kedua metode ini menghindari risiko stack overflow pada tree yang dalam meski kode lebih panjang dibanding rekursif, dengan kompleksitas waktu O(n) dan ruang O(h) di mana h adalah tinggi tree.
 
