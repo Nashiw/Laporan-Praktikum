@@ -1041,7 +1041,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x](https://github.com/Nashiw/Laporan-Praktikum/blob/main/Modul%2013/jawaban%203.png)
 
 Program diatas  mengimplementasikan struktur data circular linked list untuk menyimpan data mahasiswa yang terdiri dari nama, NIM, jenis kelamin, dan IPK, dengan sistem sirkular di mana elemen terakhir terhubung kembali ke elemen pertama membentuk lingkaran, serta menyediakan fungsi-fungsi dasar seperti pembuatan list, penyisipan di awal/tengah/akhir, penghapusan elemen, pencarian berdasarkan NIM, dan penampilan seluruh data yang diuji secara lengkap melalui program utama dengan data contoh.
 
